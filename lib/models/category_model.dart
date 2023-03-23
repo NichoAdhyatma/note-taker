@@ -29,4 +29,9 @@ List<Category> categoryList = [
     name: "Todo",
     icon: const Icon(Icons.check_box_outlined),
   ),
+  Category(
+    id: "5",
+    name: "Add",
+    icon: const Icon(Icons.add),
+  ),
 ];

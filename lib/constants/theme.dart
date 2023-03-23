@@ -7,10 +7,17 @@ const darkBlue = Color(0xFF01004E);
 
 var themeData = ThemeData(
   fontFamily: "Poppins",
+  iconTheme: const IconThemeData(color: primaryColor),
   colorScheme: ColorScheme.fromSeed(
     seedColor: primaryColor,
     primary: primaryColor,
     secondary: secondayColor,
     tertiary: ternaryColor,
   ),
+);
+
+const titleTextStyle = TextStyle(
+  color: darkBlue,
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
 );
