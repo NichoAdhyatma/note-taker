@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:note_taker/model/category.dart';
+import 'package:note_taker/constants/theme.dart';
+import 'package:note_taker/models/note_model.dart';
 import 'package:note_taker/widgets/app_bar.dart';
 import 'package:note_taker/widgets/category_list.dart';
+import 'package:note_taker/widgets/headline_note.dart';
+import 'package:note_taker/widgets/note_grid.dart';
 import 'package:note_taker/widgets/quick_note.dart';
 
 // bagian main screen gausah di utak utek duluu tunggu tak jelasin yaa
@@ -20,15 +23,67 @@ class MainScreen extends StatelessWidget {
           child: const MyAppbar(),
         ),
         body: ListView(
-          children: const [
+          children: [
             //quick note
-            QuickNote(),
-            SizedBox(
+            const QuickNote(),
+            const SizedBox(
               height: 15,
             ),
             //kategori
-            CategoryList(),
+            const CategoryList(),
+            const SizedBox(
+              height: 15,
+            ),
+            //Headline note
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
+                "Recently Openend",
+                style: titleTextStyle,
+              ),
+            ),
+            const HeadlineNote(),
+            const SizedBox(
+              height: 5,
+            ),
+            //your note
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Your Note",
+                    style: titleTextStyle.copyWith(
+                      color: primaryColor,
+                    ),
+                  ),
+                  Row(
+                    children: const [
+                      Icon(Icons.calendar_month),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(Icons.search),
+                    ],
+                  )
+                ],
+              ),
+            ),
+
+            const NoteGrid(),
           ],
+        ),
+        floatingActionButton: Container(
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.white, width: 5),
+              shape: BoxShape.circle),
+          child: FloatingActionButton(
+            elevation: 0,
+            backgroundColor: primaryColor,
+            onPressed: () {},
+            child: const Icon(Icons.add),
+          ),
         ),
       ),
     );
