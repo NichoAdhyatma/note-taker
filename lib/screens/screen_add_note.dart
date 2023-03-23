@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:note_taker/widgets/note_box.dart';
+import 'package:note_taker/widgets/quick_note.dart';
 
 class AddNote extends StatelessWidget{
   const AddNote({Key? key}) : super(key: key);
@@ -29,9 +31,7 @@ class AddNote extends StatelessWidget{
           )
         ],
       ),
-    body: Container(
-      
-    ),
+    body: NoteBox(),
     );
 
   }
