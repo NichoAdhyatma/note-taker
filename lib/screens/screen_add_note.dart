@@ -11,7 +11,7 @@ class AddNote extends StatelessWidget{
       appBar: AppBar(
         title: TextField(
           decoration: InputDecoration(
-            hintText: "Masukkan Judul",
+            hintText: "Masukkan Judul...",
           ),
         ),
         actions: <Widget>[
