@@ -17,7 +17,7 @@ class NoteTaker extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeData,
-      home: const MainScreen(), //kalau mau nampilin screen tertentu , ganti sesuai nama class screen yang dibuat
+      home: const AddNote(), //kalau mau nampilin screen tertentu , ganti sesuai nama class screen yang dibuat
     );
   }
 }
