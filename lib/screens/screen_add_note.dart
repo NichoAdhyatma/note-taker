@@ -9,7 +9,11 @@ class AddNote extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Title"),
+        title: TextField(
+          decoration: InputDecoration(
+            hintText: "Masukkan Judul",
+          ),
+        ),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.attach_file),
