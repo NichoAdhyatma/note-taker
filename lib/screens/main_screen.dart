@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:note_taker/model/category.dart';
 import 'package:note_taker/widgets/app_bar.dart';
+import 'package:note_taker/widgets/category_list.dart';
 import 'package:note_taker/widgets/quick_note.dart';
 
 // bagian main screen gausah di utak utek duluu tunggu tak jelasin yaa
@@ -18,15 +20,14 @@ class MainScreen extends StatelessWidget {
           child: const MyAppbar(),
         ),
         body: ListView(
-          children: [
+          children: const [
             //quick note
-            const QuickNote(),
-            //kategori
-            SingleChildScrollView(
-              child: Row(
-                children: [],
-              ),
+            QuickNote(),
+            SizedBox(
+              height: 15,
             ),
+            //kategori
+            CategoryList(),
           ],
         ),
       ),
