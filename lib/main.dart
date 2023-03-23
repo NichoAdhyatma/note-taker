@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:note_taker/constants/theme.dart';
-import 'package:note_taker/screens/main_screen.dart';
 import 'package:note_taker/screens/screen_add_note.dart';
 
 //ini starter template buat aplikasi note taker

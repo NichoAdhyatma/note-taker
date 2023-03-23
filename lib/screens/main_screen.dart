@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:note_taker/constants/theme.dart';
-import 'package:note_taker/models/note_model.dart';
 import 'package:note_taker/widgets/app_bar.dart';
 import 'package:note_taker/widgets/category_list.dart';
 import 'package:note_taker/widgets/headline_note.dart';

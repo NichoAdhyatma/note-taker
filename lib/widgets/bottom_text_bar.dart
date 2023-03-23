@@ -8,8 +8,8 @@ class BottomTextBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 50,
-      margin: EdgeInsets.only(left: 70, right: 70, bottom: 50),
-      decoration: BoxDecoration(
+      margin: const EdgeInsets.only(left: 70, right: 70, bottom: 50),
+      decoration: const BoxDecoration(
         color: primaryColor,
         borderRadius: BorderRadius.all(Radius.circular(5)),
       ),
@@ -23,7 +23,7 @@ class BottomTextBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Container(
               height: 20,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/icon-text-A.png'))),
             ),
@@ -32,7 +32,7 @@ class BottomTextBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Container(
               height: 20,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image:
                           AssetImage('assets/images/icon-hamburger-list.png'))),
@@ -42,7 +42,7 @@ class BottomTextBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Container(
               height: 20,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/icon-check-list.png'))),
             ),
