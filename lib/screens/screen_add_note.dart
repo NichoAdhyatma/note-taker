@@ -29,7 +29,9 @@ class AddNote extends StatelessWidget{
           )
         ],
       ),
-
+    body: Container(
+      
+    ),
     );
 
   }
