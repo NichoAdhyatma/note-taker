@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note_taker/model/category.dart';
+import 'package:note_taker/models/category_model.dart';
 
 class CategoryList extends StatelessWidget {
   const CategoryList({super.key});

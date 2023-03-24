@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NoteBox extends StatefulWidget{
-  const NoteBox({Key? key});
+  const NoteBox({super.key});
 
   @override
   State<NoteBox> createState() => _NoteBoxState();
@@ -17,8 +17,8 @@ class _NoteBoxState extends State<NoteBox>{
       body: Form(
         key: _formKey,
           child: Container(
-            padding: EdgeInsets.all(20),
-            child: TextField(
+            padding: const EdgeInsets.all(20),
+            child: const TextField(
               maxLines: 4,
               minLines: 1,
               keyboardType: TextInputType.multiline,
