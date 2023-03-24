@@ -16,6 +16,12 @@ var themeData = ThemeData(
   ),
 );
 
+const labelTextStyle = TextStyle(
+  color: darkBlue,
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
+);
+
 const titleTextStyle = TextStyle(
   color: darkBlue,
   fontSize: 18,
