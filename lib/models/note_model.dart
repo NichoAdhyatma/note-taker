@@ -12,21 +12,3 @@ class NoteModel {
   });
 }
 
-List<NoteModel> noteList = [
-  NoteModel(
-    title: "Headline Note",
-    body: faker.lorem.sentence(),
-  ),
-  NoteModel(
-    title: "Headline Note",
-    body: faker.lorem.sentence(),
-  ),
-  NoteModel(
-    title: "Headline Note",
-    body: faker.lorem.sentence(),
-  ),
-  NoteModel(
-    title: "Headline Note",
-    body: faker.lorem.sentence(),
-  ),
-];
