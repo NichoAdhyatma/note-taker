@@ -17,7 +17,7 @@ List<Category> categoryList = [
   Category(
     id: "2",
     name: "Work",
-    icon: const Icon(Icons.work_off_outlined),
+    icon: const Icon(Icons.work_outline),
   ),
   Category(
     id: "3",
