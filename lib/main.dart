@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:note_taker/constants/theme.dart';
 import 'package:note_taker/providers/note_provider.dart';
 import 'package:note_taker/screens/edit_note_screen.dart';
+import 'package:note_taker/screens/folder_screen.dart';
 import 'package:note_taker/screens/main_screen.dart';
 import 'package:note_taker/screens/add_note_screen.dart';
 import 'package:provider/provider.dart';
@@ -17,12 +18,14 @@ class NoteTaker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //kalau mau nampilin screen tertentu , ganti sesuai nama class screen yang dibuat
+
     return ChangeNotifierProvider(
       create: (context) => NoteProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: themeData,
-        home: const MainScreen(),
+        home: const FolderScreen(),
         routes: {
           MainScreen.routeName: (context) => const MainScreen(),
           AddNoteScreen.routeName: (context) => const AddNoteScreen(),
