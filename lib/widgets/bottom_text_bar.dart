@@ -24,8 +24,10 @@ class BottomTextBar extends StatelessWidget {
             icon: Container(
               height: 20,
               decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/icon-text-A.png'))),
+                image: DecorationImage(
+                  image: AssetImage('assets/images/icon-text-A.png'),
+                ),
+              ),
             ),
             label: 'ABC',
           ),

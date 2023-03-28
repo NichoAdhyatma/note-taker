@@ -1,17 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:note_taker/constants/theme.dart';
+import 'package:note_taker/models/providers/note_provider.dart';
 import 'package:note_taker/screens/add_note_screen.dart';
 import 'package:note_taker/widgets/app_bar.dart';
 import 'package:note_taker/widgets/category_list.dart';
 import 'package:note_taker/widgets/headline_note.dart';
 import 'package:note_taker/widgets/note_grid.dart';
 import 'package:note_taker/widgets/quick_note.dart';
+import 'package:provider/provider.dart';
 
 // bagian main screen gausah di utak utek duluu tunggu tak jelasin yaa
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
   static const routeName = "/main";
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  bool isInit = true;
+  @override
+  void didChangeDependencies() async {
+    if (isInit) {
+      await Provider.of<NoteProvider>(context).initialData();
+    }
+    isInit = false;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,8 +99,33 @@ class MainScreen extends StatelessWidget {
           child: FloatingActionButton(
             elevation: 0,
             backgroundColor: primaryColor,
-            onPressed: () {
-              Navigator.of(context).pushNamed(AddNoteScreen.routeName);
+            onPressed: () async {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              var result = await Navigator.of(context)
+                  .pushNamed(AddNoteScreen.routeName) as bool;
+              if (result) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    backgroundColor: secondayColor,
+                    behavior: SnackBarBehavior.fixed,
+                    elevation: 5,
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    content: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/images/app-logo.png',
+                          height: 20,
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        const Text("Note disimpan"),
+                      ],
+                    ),
+                  ),
+                );
+              }
             },
             child: const Icon(Icons.add),
           ),
