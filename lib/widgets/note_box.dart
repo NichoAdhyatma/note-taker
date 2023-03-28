@@ -21,6 +21,7 @@ class _NoteBoxState extends State<NoteBox> {
           child: Container(
             padding: const EdgeInsets.all(20),
             child:TextField(
+              autocorrect: false,
               controller: body,
               maxLines: null,
               minLines: 1,

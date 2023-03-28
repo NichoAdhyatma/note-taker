@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_taker/constants/theme.dart';
-import 'package:note_taker/providers/note_provider.dart';
+import 'package:note_taker/models/providers/note_provider.dart';
 import 'package:note_taker/screens/edit_note_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -42,11 +42,41 @@ class NoteGrid extends StatelessWidget {
             itemCount: noteProvider.noteList.length,
             itemBuilder: (context, index) {
               var note = noteProvider.noteList[index];
-              return GestureDetector(
-                onTap: () => Navigator.pushNamed(context, EditNoteScreen.routeName, arguments: index),
+              return InkWell(
+                onTap: () async {
+                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                  var result = await Navigator.pushNamed(
+                          context, EditNoteScreen.routeName, arguments: index)
+                      as bool;
+                  if (result) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: secondayColor,
+                        behavior: SnackBarBehavior.fixed,
+                        elevation: 5,
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        content: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/images/app-logo.png',
+                              height: 20,
+                            ),
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            const Text("Note diubah"),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
+                },
                 child: Dismissible(
                   key: UniqueKey(),
-                  direction: index % 2 == 0 ? DismissDirection.endToStart: DismissDirection.startToEnd,
+                  direction: index % 2 == 0
+                      ? DismissDirection.endToStart
+                      : DismissDirection.startToEnd,
                   confirmDismiss: (direction) async {
                     return await showDialog(
                       context: context,
@@ -57,15 +87,36 @@ class NoteGrid extends StatelessWidget {
                             child: const Text('Yes'),
                             onPressed: () {
                               noteProvider.deleteNote(index);
-                              Navigator.pop(
-                                  context, true); // showDialog() returns true
+                              Navigator.pop(context, true);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  backgroundColor: secondayColor,
+                                  behavior: SnackBarBehavior.fixed,
+                                  elevation: 5,
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 20),
+                                  content: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        'assets/images/app-logo.png',
+                                        height: 20,
+                                      ),
+                                      const SizedBox(
+                                        width: 15,
+                                      ),
+                                      const Text("Note dihapus"),
+                                    ],
+                                  ),
+                                ),
+                              ); // showDialog() returns true
                             },
                           ),
                           TextButton(
                             child: const Text('No'),
                             onPressed: () {
-                              Navigator.pop(
-                                  context, false); // showDialog() returns false
+                              Navigator.pop(context, false);
+                              // showDialog() returns false
                             },
                           ),
                         ],
@@ -99,10 +150,16 @@ class NoteGrid extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(note.title, style: titleTextStyle, overflow: TextOverflow.ellipsis,),
+                                Text(
+                                  note.title,
+                                  style: titleTextStyle,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                ),
                                 Text(
                                   note.body,
                                   overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
                                 ),
                               ],
                             ),
