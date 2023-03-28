@@ -51,24 +51,6 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
               hintText: "Masukkan Judul...",
               hintStyle: TextStyle(color: Colors.white)),
         ),
-        actions: <Widget>[
-          Consumer<NoteProvider>(
-            builder: (context, noteProvider, child) => IconButton(
-              icon: const Icon(Icons.attach_file),
-              onPressed: () {
-                simpanNote(noteProvider);
-              },
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.arrow_back_rounded),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.format_list_bulleted),
-            onPressed: () {},
-          )
-        ],
       ),
       body: NoteBox(
         body: body,
