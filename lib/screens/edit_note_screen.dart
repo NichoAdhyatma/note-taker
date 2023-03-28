@@ -57,24 +57,6 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
             hintText: "Masukkan Judul...",
           ),
         ),
-        actions: <Widget>[
-          Consumer<NoteProvider>(
-            builder: (context, noteProvider, child) => IconButton(
-              icon: const Icon(Icons.attach_file),
-              onPressed: () {
-                updateNote(noteProvider, title.text, body.text, arguments);
-              },
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.arrow_back_rounded),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.format_list_bulleted),
-            onPressed: () {},
-          )
-        ],
       ),
       body: NoteBox(
         body: body,
