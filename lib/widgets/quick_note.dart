@@ -40,6 +40,7 @@ class _QuickNoteState extends State<QuickNote> {
                     borderRadius: BorderRadius.circular(5),
                     color: Colors.white),
                 child: TextField(
+                  autofocus: false,
                   controller: textEditingController,
                   onChanged: (value) => {
                     setState(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note_taker/providers/note_provider.dart';
+import 'package:note_taker/models/providers/note_provider.dart';
 import 'package:note_taker/widgets/bottom_text_bar.dart';
 import 'package:note_taker/widgets/note_box.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +15,13 @@ class EditNoteScreen extends StatefulWidget {
 class _EditNoteScreenState extends State<EditNoteScreen> {
   void updateNote(
       NoteProvider noteProvider, String title, String body, int index) {
-    noteProvider.editNote(title, body, index);
+    var editNote = Provider.of<NoteProvider>(context, listen: false).findByIndex(index);
+    if (title != editNote.title || body != editNote.body) {
+      noteProvider.editNote(title, body, index);
+      Navigator.of(context).pop(true);
+    } else {
+      Navigator.of(context).pop(false);
+    }
   }
 
   @override
@@ -33,7 +39,6 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
         leading: Consumer<NoteProvider>(
           builder: (context, noteProvider, child) => IconButton(
             onPressed: () {
-              Navigator.of(context).pop();
               updateNote(noteProvider, title.text, body.text, arguments);
             },
             icon: const Icon(Icons.arrow_back),
@@ -58,7 +63,6 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
               icon: const Icon(Icons.attach_file),
               onPressed: () {
                 updateNote(noteProvider, title.text, body.text, arguments);
-                Navigator.of(context).pop();
               },
             ),
           ),

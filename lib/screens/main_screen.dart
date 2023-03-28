@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_taker/constants/theme.dart';
-import 'package:note_taker/providers/note_provider.dart';
+import 'package:note_taker/models/providers/note_provider.dart';
 import 'package:note_taker/screens/add_note_screen.dart';
 import 'package:note_taker/widgets/app_bar.dart';
 import 'package:note_taker/widgets/category_list.dart';
@@ -99,8 +99,33 @@ class _MainScreenState extends State<MainScreen> {
           child: FloatingActionButton(
             elevation: 0,
             backgroundColor: primaryColor,
-            onPressed: () {
-              Navigator.of(context).pushNamed(AddNoteScreen.routeName);
+            onPressed: () async {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              var result = await Navigator.of(context)
+                  .pushNamed(AddNoteScreen.routeName) as bool;
+              if (result) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    backgroundColor: secondayColor,
+                    behavior: SnackBarBehavior.fixed,
+                    elevation: 5,
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    content: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/images/app-logo.png',
+                          height: 20,
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        const Text("Note disimpan"),
+                      ],
+                    ),
+                  ),
+                );
+              }
             },
             child: const Icon(Icons.add),
           ),
