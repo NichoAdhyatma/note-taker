@@ -42,11 +42,13 @@ class BottomTextBar extends StatelessWidget {
             label: 'Tes',
           ),
           BottomNavigationBarItem(
-            icon: Container(
-              height: 20,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/icon-check-list.png'))),
+            icon: InkWell(
+              child: Container(
+                height: 20,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/icon-check-list.png'))),
+              ),
             ),
             label: 'Tes2',
           ),
