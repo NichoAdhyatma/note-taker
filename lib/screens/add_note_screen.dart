@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note_taker/models/providers/note_provider.dart';
+import 'package:note_taker/providers/note_provider.dart';
 import 'package:note_taker/widgets/bottom_text_bar.dart';
 import 'package:note_taker/widgets/note_box.dart';
 import 'package:provider/provider.dart';

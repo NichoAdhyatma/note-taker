@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:note_taker/constants/theme.dart';
-import 'package:note_taker/models/providers/note_provider.dart';
+import 'package:note_taker/providers/note_provider.dart';
 import 'package:note_taker/screens/edit_note_screen.dart';
 import 'package:provider/provider.dart';
 

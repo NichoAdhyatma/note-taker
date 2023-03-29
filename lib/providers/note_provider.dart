@@ -24,8 +24,6 @@ class NoteProvider with ChangeNotifier {
     var noteTemp = pref.getString("note");
     var noteListTemp = jsonDecode(noteTemp!) as List<dynamic>;
 
-    print("decoded : $noteListTemp");
-
     for (var element in noteListTemp) {
       _noteList.add(NoteModel.fromJson(element));
     }
@@ -40,8 +38,6 @@ class NoteProvider with ChangeNotifier {
     pref.clear();
 
     var decodedNote = jsonEncode(_noteList);
-    print("encoded : $decodedNote");
-    print("asli : $_noteList");
     pref.setString("note", decodedNote);
   }
 
