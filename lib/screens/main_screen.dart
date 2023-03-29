@@ -48,19 +48,18 @@ class _MainScreenState extends State<MainScreen> {
               height: 15,
             ),
             //kategori
-            const CategoryList(),
             const SizedBox(
               height: 15,
             ),
             //Headline note
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text(
-                "Recently Added",
-                style: titleTextStyle,
-              ),
-            ),
-            const HeadlineNote(),
+            // const Padding(
+            //   // padding: EdgeInsets.symmetric(horizontal: 16.0),
+            //   // child: Text(
+            //   //   "Recently Added",
+            //   //   style: titleTextStyle,
+            //   // ),
+            // ),
+            // const HeadlineNote(),
             const SizedBox(
               height: 5,
             ),
@@ -76,15 +75,15 @@ class _MainScreenState extends State<MainScreen> {
                       color: primaryColor,
                     ),
                   ),
-                  Row(
-                    children: const [
-                      Icon(Icons.calendar_month),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Icon(Icons.search),
-                    ],
-                  )
+                  // Row(
+                  //   children: const [
+                  //     Icon(Icons.calendar_month),
+                  //     SizedBox(
+                  //       width: 10,
+                  //     ),
+                  //     Icon(Icons.search),
+                  //   ],
+                  // )
                 ],
               ),
             ),

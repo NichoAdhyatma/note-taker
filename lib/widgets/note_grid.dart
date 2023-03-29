@@ -1,3 +1,5 @@
+// import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:note_taker/constants/theme.dart';
 import 'package:note_taker/models/providers/note_provider.dart';
@@ -138,33 +140,53 @@ class NoteGrid extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Flexible(
-                          flex: 1,
+                          flex: 0,
                           child: Container(
-                            color: primaryColor,
                           ),
                         ),
                         Expanded(
                           flex: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  note.title,
-                                  style: titleTextStyle,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                ),
-                                Text(
-                                  note.body,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                ),
-                              ],
+                                Column(
+                                  children: [
+                                    Padding(
+                                    padding: EdgeInsets.only(top: 16, right: 16,left: 16),
+                                    child: Text(
+                                      note.title,
+                                      style: titleTextStyle,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
+                                    ),
+                                  ),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+                                      child: Text(
+                                        note.body,
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 3,
+                                      ),
+                                    )
+                                ]),
+                                Container(
+                                      // margin: EdgeInsets.only(top: 30, right: 200, left: 0),
+                                      alignment: Alignment.bottomLeft,
+                                        child:IconButton(
+                                              onPressed: (){
+                                                noteProvider.deleteNote(index);
+                                              },
+                                              icon: const Icon(
+                                                  Icons.delete_outline,
+                                                  color: Colors.red,
+                                              )
+                                          ),
+                                      ),
+                                ],
+
                             ),
                           ),
-                        ),
                       ],
                     ),
                   ),
